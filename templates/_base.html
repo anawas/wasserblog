@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html> 
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta charset="utf-8">
+    
+	<title>
+		{% block title %}Wasserblog - HTML{% endblock %}
+	</title>
+	<link href="/static/css/default.css" rel="stylesheet" type="text/css" />
+	<link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/jquerymobile/1.4.2/jquery.mobile.min.css" />
+	<script src="//ajax.googleapis.com/ajax/libs/jquerymobile/1.4.2/jquery.mobile.min.js"></script>    
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>   
+    <script type="text/javascript" src="/static/js/analysefunc.js"></script>
+	<script type="text/javascript" charset="utf-8">
+    	function onLoad() {
+    		document.addEventListener("deviceready", onDeviceReady, false);	
+    	}
+    
+    	function onDeviceReady() {
+    		document.addEventListener("online", onOnline, false);
+    	}
+    
+    	function onOnline() {
+    	}
+
+    	$(document).on( 'slidestop', '', function(){
+			analyze_hardness();
+			analyze_co2();
+    	});
+
+    	$("div").live("pagehide", function(event, ui) {
+			analyze_hardness();
+			analyze_co2();
+    	});
+
+
+	</script>	
+</head>
+
+<body onload="onLoad()">
+	{% block bodycontent %}
+		Replace this
+	{% endblock %}
+</body>
+</html>

@@ -1,0 +1,14 @@
+{% extends "_base.html" %}
+{% block title %}
+	Wasserblog -- Resultate
+{% endblock %}
+{% block bodycontent %}
+<h2>Measurements:</h2>
+{{ stats|safe|escape }}
+<table>
+<th>Date</th><th>Brightness</th><th>Temperature</th>
+{{ results|safe|escape }}
+</table>
+<small>Serving from app version 2.0</small>
+{% endblock %}
+

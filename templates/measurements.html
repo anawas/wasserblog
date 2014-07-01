@@ -1,0 +1,41 @@
+{% extends "_base.html" %}
+{% block title %}
+	Wasserblog -- Resultate
+{% endblock %}
+{% block bodycontent %}
+<div data-role="page" id="measurements">
+    <div data-role="header">
+        <h1>Messungen</h1>
+    </div>
+    <div data-role="content">
+		<form method="post" action="/analyze">
+        	<div data-role="fieldcontain">
+            	<label for="totalHardnessSlider">Gemessene Gesamth&auml;rte:</label>
+            	<input type="range" name="totalHardnessSlider" id="totalHardnessSlider" value="{{hardnessValue}}" min="1" max="25">
+        	</div>
+        	<div data-role="fieldcontain">
+            	<label for="carboHardnessSlider">Gemessene Karbonath&auml;rte:</label>
+            	<input type="range" name="carbonHardnessSlider" id="carbonHardnessSlider" value="{{carbonHardnessValue}}" min="1" max="15">
+        	</div>
+        	<div data-role="fieldcontain">
+            	<label for="pHSlider">Gemessener pH-Wert:</label>
+            	<input type="range" name="pHSlider" id="pHSlider" value="8" min="5" max="14" step="0.5">
+        	</div>
+        	<div data-role="fieldcontain">
+            	<input type="submit" name="blogit" value="Bloggen" onclick="window.location='/blog'; return false;" />
+            	<input type="submit" name="analyze" value="Analyze" />
+        	</div>
+		</form>
+    </div>
+    <div data-role="footer" data-position="fixed" data-id="mainfooter">
+        <div data-role="navbar">
+            <ul>
+                <li><a href="/measurements" class="ui-btn-active ui-state-persist">Messungen</a></li>
+                <li><a href="/analyze">Analyse</a></li>
+                <li><a href="/blog">Blog</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+{% endblock %}
+

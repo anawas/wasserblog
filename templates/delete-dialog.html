@@ -1,0 +1,25 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        	<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1, user-scalable=no">
+			<link rel="stylesheet" href="/static/jqm/jquery.mobile-1.4.2.min.css" />
+		    <script type="text/javascript" src="/static/jquery-1.11.1.js"></script>
+		    <script type="text/javascript" src="/static/jqm/jquery.mobile-1.4.2.min.js"></script>
+
+    </head>
+    <body >
+        <div data-role="dialog" id="delete_dialog" data-close-btn-text="Dialog schliessen">
+            <div data-role="header">
+                <h1>L&ouml;schen</h1>
+            </div>
+            <div data-role="content">
+            	<h3 style="text-align: center;">Was m&ouml;chten Sie l&ouml;schen?</h3>
+      			<p><a href="javascript:deletesomething('last')" id="deletelast" data-role="button" data-rel="dialog">Letzten Eintrag</a></p>
+      			<p><a href="javascript:deletesomething('all')" id="deleteall" data-role="button" data-rel="dialog" data-theme="f">Alle Eintr&auml;ge</a></p>
+
+      			<p><a href="/blog" data-role="button" data-rel="back">Zur&uuml;ck</a></p>
+            </div>
+        </div>
+    </body>
+</html>

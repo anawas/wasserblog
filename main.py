@@ -35,10 +35,18 @@ class MeasurementHandler(webapp2.RequestHandler):
 		measure.put()
 
 
+"""
+This class handles requests from Twilio. We don't care
+if there's a post or get request.
+"""
 class CallAgentHandler(webapp2.RequestHandler):
 	def get(self):
 		agent = CallAgent()
 		agent.get(self)
+
+	def post(self):
+		agent = CallAgent()
+		agent.post(self)
 
 """
 This class renders the standard web page at "/"

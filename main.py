@@ -4,6 +4,7 @@ import math
 import logging
 from Analyzer import Analyzer
 from Measurement import Measurement
+from CallAgent import CallAgent
 from google.appengine.api import users
 from google.appengine.ext.webapp import template
 from google.appengine.ext import ndb
@@ -28,6 +29,12 @@ class MeasurementHandler(webapp2.RequestHandler):
 		measure.temperature = self.request.get('temp')
 		measure.put()
 
+
+class CallAgentHandler(webapp2.RequestHandler):
+	def get(self):
+		agent = CallAgent()
+		agent.get(self)
+
 """
 This class renders the standard web page at "/"
 Replace this with appropriate content
@@ -41,6 +48,7 @@ application = webapp2.WSGIApplication([
 	('/', MainPage),
 	('/analyze', AnalyzeHandler),
 	('/measure', MeasurementHandler),
+	('/tell', CallAgentHandler)
 ], debug=True)
 
 def main():

@@ -16,8 +16,13 @@ data in the Datastore.
 """
 class AnalyzeHandler(webapp2.RequestHandler):
 	def get(self):
-		analyzer = Analyzer()
-		analyzer.get(self)
+		user = users.get_current_user()
+		
+		if user:
+			analyzer = Analyzer()
+			analyzer.get(self)
+		else:
+			self.redirect(users.create_login_url(self.request.uri))
 
 """
 This class handles the POST request from the board
@@ -41,8 +46,13 @@ Replace this with appropriate content
 """
 class MainPage(webapp2.RequestHandler):
 	def get(self):
-		self.response.headers['Content-Type'] = 'text/plain'
-		self.response.write('Hello, World!')
+		user = users.get_current_user()
+		
+		if user:
+			self.response.headers['Content-Type'] = 'text/plain'
+			self.response.write('Hello, World!')
+		else:
+			self.redirect(users.create_login_url(self.request.uri))
 
 application = webapp2.WSGIApplication([
 	('/', MainPage),

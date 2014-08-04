@@ -30,12 +30,12 @@ class CallAgent():
 		"""
 		
 		resultString = ''				
-		resultString += "Latest measurement is "
+		resultString += "Letzter Messwert: "
 		temp = converter.asciiToFloat(points[0].temperature)
-		resultString += "temperature %2.1f degrees centigrades." % converter.convertToDegree(temp)
+		resultString += "Temperatur %2.1f Grad." % converter.convertToDegree(temp)
 
 		r = twiml.Response()
-		r.say(resultString)
+		r.say(resultString, voice="male", language="de")
 		handler.response.headers['Content-Type'] = 'text/xml'
 		handler.response.write(str(r))
 
@@ -54,11 +54,11 @@ class CallAgent():
 		"""
 		
 		resultString = ''				
-		resultString += "Latest measurement is "
+		resultString += "Letzter Messwert "
 		temp = converter.asciiToFloat(points[0].temperature)
-		resultString += "temperature %2.1f degrees centigrades." % converter.convertToDegree(temp)
+		resultString += "Temperatur %2.1f Grad." % converter.convertToDegree(temp)
 
 		r = twiml.Response()
-		r.say(resultString)
+		r.say(resultString, voice="male", language="de")
 		handler.response.headers['Content-Type'] = 'text/xml'
 		handler.response.write(str(r))
